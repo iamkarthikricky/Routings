@@ -1,0 +1,46 @@
+/* NavBar.css */
+.navbar {
+    background-color: #333;
+    padding: 1rem;
+  }
+  
+  .main-menu {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .main-menu > li {
+    position: relative;
+  }
+  
+  .main-menu > li > a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .sub-menu {
+    position: absolute;
+    top: 2rem;
+    left: 0;
+    background-color: #444;
+    list-style: none;
+    padding: 0.5rem;
+    display: none;
+  }
+  
+  .main-menu > li:hover .sub-menu {
+    display: block;
+  }
+  
+  .sub-menu > li > a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    padding: 0.5rem 1rem;
+  }
+  
+  .sub-menu > li > a:hover {
+    background-color: #555;
+  }
+  

@@ -1,25 +1,114 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route, Link, Outlet } from 'react-router-dom';
 
-function App() {
+const HiElement = ({ children }) => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <nav>
+        <ul>
+          <li><Link to="dashboard">Dashboard</Link></li>
+          <li><Link to="employees">Employees</Link></li>
+        </ul>
+      </nav>
+      <Outlet />
+      <nav>
+        <ul>
+          {children}
+        </ul>
+      </nav>
     </div>
   );
-}
+};
 
-export default App;
+const Dashboard = ({ children }) => {
+  return (
+    <div>
+      <nav>
+        <ul>
+          <li><Link to="stats">Stats</Link></li>
+        </ul>
+      </nav>
+      <Outlet />
+      <nav>
+        <ul>
+          {children}
+        </ul>
+      </nav>
+    </div>
+  );
+};
+
+const Demo = ({ children }) => {
+  return (
+    <div>
+      <Link to="demo">Demo</Link>
+      <Outlet />
+      <nav>
+        <ul>
+          {children}
+        </ul>
+      </nav>
+    </div>
+  );
+};
+
+const freeDemo = () => {
+  return <p>Free Demo</p>;
+};
+
+const routes = [
+  {
+    path: "/",
+    component: HiElement,
+    children: [
+      {
+        path: '/dashboard',
+        component: Dashboard,
+        children: [
+          {
+            path: 'stats',
+            component: Demo,
+            children: [
+              { path: 'demo', component: freeDemo },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+];
+
+const renderRoutes = (routes) => {
+  return routes.map((route, index) => {
+    if (route.children) {
+      const NavbarLinks = route.children.map((childRoute, childIndex) => (
+        <li key={childIndex}>
+          <Link to={childRoute.path}>{childRoute.path.replace('/', '')}</Link>
+        </li>
+      ));
+
+      return (
+        <Route
+          key={index}
+          path={route.path}
+          element={<route.component>{NavbarLinks}</route.component>}
+        >
+          {renderRoutes(route.children)}
+        </Route>
+      );
+    } else {
+      return (
+        <Route key={index} path={route.path} element={<route.component />} />
+      );
+    }
+  });
+};
+
+const MainComponent = () => {
+  return (
+    <Router>
+      <Routes>{renderRoutes(routes)}</Routes>
+    </Router>
+  );
+};
+
+export default MainComponent;

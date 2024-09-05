@@ -1,0 +1,47 @@
+.timeline-wrapper{
+    width: 100%;
+    background-color: white !important;
+    overflow-x: auto;
+}
+.timeline-wrapper .react-calendar-timeline {
+    width:100% !important;
+}
+.timeline-wrapper .rct-header-root {
+    height: 40px !important;
+    background-color: white !important;
+    padding-left: 57px !important;
+    border: none !important;
+}
+.timeline-wrapper .rct-calendar-header{
+    border: none !important;
+}
+.timeline-wrapper .rct-calendar-header div{
+    border:1px solid red;
+    height: 100% !important;
+    width: 10px !important;
+    color: #6D6976;
+font-family: "Public Sans";
+font-size: 14px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+padding: 0px;
+text-align:start;
+display: flex;
+flex-direction: column;
+justify-content: end;
+}
+
+.rct-outer{
+    width: 1115px !important;
+height: 639px !important;
+flex-shrink: 0;
+border-radius: 4px;
+border: 1px solid #C9C9C9;
+background: #FAFAFA;
+margin-top: 32px;
+}
+.timeline-container{
+    display: flex;
+    flex-direction: row;
+}

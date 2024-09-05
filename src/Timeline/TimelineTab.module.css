@@ -1,0 +1,48 @@
+
+  .timeline_tab_container {
+    width: 1173px;
+height: 883px;
+flex-shrink: 0;
+
+  }
+  
+
+  .timeline_wrapper {
+    width: 100%;
+  }
+
+  .timeline_wrapper .react-calender-timeline{
+    width: 100% !important;
+    border: 2px solid green;
+}
+  
+.months_tile_container{
+    padding:12px 41px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 2px;
+border: 1px solid #C9C9C9;
+height: 40px;
+flex-shrink: 0;
+}
+.month_tile{
+    color: #6D6976;
+font-family: "Public Sans";
+font-size: 14px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+cursor: pointer;
+outline: none;
+}
+.dates_pagination_btn{
+    width: 40px;
+height: 40px;
+flex-shrink: 0;
+}
+.flex{
+    display: flex;
+    flex-direction: row;
+}
